@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Component Animations</title>
+</head>
+
+<body>
+    <header>
+        <a href="https://epicode.com"><img src="./epicode.svg" alt="epicode logo" height="60"></a>
+        <div class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <aside>
+        <h4>Menu</h4>
+        <ul>
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Courses</li>
+            <li>Contacts</li>
+        </ul>
+        <button>Apply Now</button>
+    </aside>
+
+    <main>
+        <h1>Hello Students! Ready to code?</h1>
+        <p>Let's jump right in...</p>
+        <button>Canditate Now</button>
+    </main>
+
+    <div class="overlay"></div>
+    <script>
+
+        const handleSidebar = () => {
+            const btn = document.querySelector(".menu-btn")
+            const sidebar = document.querySelector("aside")
+            const overlay = document.querySelector(".overlay")
+
+            if (btn.classList.contains("expanded")) {
+                btn.classList.remove("expanded")
+                btn.classList.add("collapsed")
+
+                sidebar.classList.remove("show")
+                sidebar.classList.add("hide")
+
+                overlay.classList.remove("show")
+            } else {
+                btn.classList.remove("collapsed")
+                btn.classList.add("expanded")
+
+                sidebar.classList.remove("hide")
+                sidebar.classList.add("show")
+
+                overlay.classList.add("show")
+            }
+
+        }
+
+        window.onload = function () {
+            const btn = document.querySelector(".menu-btn")
+            const sidebar = document.querySelector("aside")
+            const overlay = document.querySelector(".overlay")
+
+            overlay.addEventListener("click", function () {
+                handleSidebar()
+            })
+
+            btn.addEventListener("click", function () {
+                handleSidebar()
+            })
+        }
+    </script>
+</body>
+
+</html>
